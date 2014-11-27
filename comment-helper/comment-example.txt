@@ -5,6 +5,7 @@ You can assign your comments to sections, also it is easier to find them again i
 Emty lines doesn't matter in the source file.
 You can select multiple source files. Similar sections will be merged.
 
+This is an example which is..<br>..spanning two lines
 
 [Html-Support]
 <p><b>This text is bold</b></p>

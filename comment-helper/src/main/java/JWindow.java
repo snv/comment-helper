@@ -24,6 +24,7 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
@@ -65,6 +66,22 @@ public class JWindow extends JFrame implements TreeSelectionListener, KeyEventDi
 
 		tree.setSelectionModel( new LeafTreeSelectionModel());
 		tree.setToggleClickCount(0); // disable collapse nodes
+		tree.setCellRenderer(new DefaultTreeCellRenderer() {
+
+			/**
+			 * generated
+			 */
+			private static final long serialVersionUID = 1233643833005378719L;
+			
+			{
+				//make sure at least the top line of multiline texts is readable
+				setVerticalTextPosition(TOP);
+				setVerticalAlignment(TOP);
+			}
+			
+		}
+			
+		);
 
 		// expand all
 		for (int i = 0; i < tree.getRowCount(); i++) {
@@ -118,6 +135,7 @@ public class JWindow extends JFrame implements TreeSelectionListener, KeyEventDi
 			
 			if(e.isAddedPath(path)) {
 				selection.add(line);
+				
 			} else {
 				selection.remove(line);
 			}
