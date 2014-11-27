@@ -26,3 +26,10 @@ EclipseKeys.projectFlavor := EclipseProjectFlavor.Java
 EclipseKeys.withSource := true
 
 EclipseKeys.withJavadoc := true
+
+//building an executable jar
+assemblyJarName in assembly := "comment-helper.jar"
+
+mainClass in assembly := Some("JWindow")
+
+assemblyOption in assembly := (assemblyOption in assembly).value.copy(includeScala = false)
