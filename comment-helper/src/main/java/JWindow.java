@@ -182,13 +182,14 @@ public class JWindow extends JFrame implements TreeSelectionListener, KeyEventDi
             	BufferedReader br = new BufferedReader(new FileReader(file));
                 String line = null;
                 while ((line = br.readLine()) != null) {
+                	String trim = line.trim();
                 	// remove empty lines
-                	if (!line.replaceAll("\\s+","").isEmpty()) {
+                	if (!trim.isEmpty()) {
                 		
-                		String trim = line.trim();
+                		
                 		if (trim.startsWith("[") && trim.endsWith("]")) {
                 			// line is a category header
-                			String title = line.substring(1, line.length()-1);
+                			String title = trim.substring(1, line.length()-1);
                 			
                 			if(categories.containsKey(title)) {
                 				// reuse old category
@@ -200,6 +201,11 @@ public class JWindow extends JFrame implements TreeSelectionListener, KeyEventDi
                 				categories.put(title, category);
                 			}
                 		} else {
+                			// make sure snippets dont stick together
+                			if (!trim.endsWith("</p>") && !trim.endsWith("br>")) {
+								line += "</br>";
+							}
+                			
                 			// convert line to html
                 			line = Jsoup.parse(line).html();
                 		
