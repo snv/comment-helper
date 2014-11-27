@@ -18,11 +18,14 @@ Features
 
 Usage
 =====
- 1. Download repository & import in eclipse as project.
- 2. Download jsoup library and add library to project.
- 2. Start comment-helper and choose the [comment-example.txt] (comment-helper/comment-example.txt) file.
- 2. Look at the [comment-example.txt] (comment-helper/comment-example.txt) and learn more about syntax.
- 3. Write your own comment source files.
+
+ 1.  Prepare Dependencies:
+ 1.1   Install SBT http://www.scala-sbt.org/
+ 1.2   Open a SBT session in the comment-helper directory and execute "reload plugins", then "eclipse", and then "reload return"
+ 2.  Then import the Project in eclipse
+ 3.  Start comment-helper and choose the [comment-example.txt] (comment-helper/comment-example.txt) file.
+ 4.  Look at the [comment-example.txt] (comment-helper/comment-example.txt) and learn more about syntax.
+ 5.  Write your own comment source files.
 
 Some supported HTML-Tags
 ========================
@@ -37,8 +40,8 @@ More tags are supported, but not yet tested.
 
 Dependencies
 ============
- 1. [jsoup-library] (http://jsoup.org/download)
-
+ 
+ Managed by SBT
 
 License
 =======

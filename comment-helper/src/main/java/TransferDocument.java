@@ -1,3 +1,4 @@
+
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
@@ -25,11 +26,13 @@ public class TransferDocument extends Document implements Transferable {
 	}
 	
 	
+	@Override
 	public DataFlavor[] getTransferDataFlavors() {
         return supportedFlavors;
     }
 
-    public boolean isDataFlavorSupported(DataFlavor flavor) {
+    @Override
+	public boolean isDataFlavorSupported(DataFlavor flavor) {
         for (DataFlavor supportedFlavor : supportedFlavors) {
             if (supportedFlavor == flavor) {
                 return true;
@@ -38,7 +41,8 @@ public class TransferDocument extends Document implements Transferable {
         return false;
     }
 
-    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+    @Override
+	public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
         if (flavor.equals(supportedFlavors[0])) {
             return html();
         }
